@@ -1,4 +1,6 @@
 <?php 
+echo "IMPORTED THIS </br>";
+
 //get thera JSON data from eve-scout and parse into DB
 //checks last modified to figure out if new data needs to be added to DB
 function theraJson()
@@ -10,6 +12,13 @@ function theraJson()
 //retrieve JSON from eve-scout and save as session object?
 function getThera()
 {
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, "https://www.eve-scout.com/api/wormholes");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$output = curl_exec($ch);
+	curl_close($ch);
+	echo $output;
+	
 	
 }
 
